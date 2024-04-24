@@ -3,7 +3,7 @@ import Nav from "../Components/Nav";
 
 const Layout = () => {
     return (
-        <div>
+        <div className="w-[80%] mx-auto">
             <Nav/>
             <Outlet/>
         </div>
