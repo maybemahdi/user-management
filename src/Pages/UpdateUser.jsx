@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 
 const UpdateUser = () => {
   const userData = useLoaderData();
-  const {id} = useParams();
+  const { id } = useParams();
   const [gender, setGender] = useState("");
   const [status, setStatus] = useState("");
   const handleChange = (event) => {
@@ -22,7 +22,7 @@ const UpdateUser = () => {
     const selectedStatus = status;
     const user = { name, email, selectedGender, selectedStatus };
     console.log(user);
-    fetch(`http://localhost:5000/users/${id}`, {
+    fetch(`https://user-management-server-gules-xi.vercel.app/users/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -32,19 +32,19 @@ const UpdateUser = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if(data.modifiedCount){
-            form.reset();
-            Swal.fire({
-                title: "Good job!",
-                text: "You just updated an User!",
-                icon: "success"
-              });
+        if (data.modifiedCount) {
+          form.reset();
+          Swal.fire({
+            title: "Good job!",
+            text: "You just updated an User!",
+            icon: "success",
+          });
         }
       });
   };
   return (
     <div className="my-12">
-      <h2 className="text-2xl font-bold text-center">Add User Here:</h2>
+      <h2 className="text-2xl font-bold text-center">Update User Here:</h2>
       <div className="md:w-[50%] mx-auto my-5">
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div className="space-y-2">

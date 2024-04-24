@@ -19,7 +19,7 @@ const AddUser = () => {
     const selectedStatus = status;
     const user = { name, email, selectedGender, selectedStatus };
     console.log(user);
-    fetch("http://localhost:5000/users", {
+    fetch("https://user-management-server-gules-xi.vercel.app/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
